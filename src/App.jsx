@@ -14,6 +14,7 @@ function App() {
     
   });
   console.log(formData);
+  const [feedback, setFeedback] = useState("")
 
   function handleChange(e) {
     const {name, type, value, checked } = e.target;
@@ -29,9 +30,11 @@ function handleSubmit(e) {
   axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
   .then(res => {
     console.log("Post riuscito!", res.data);
+    setFeedback("Post inviato con successo!");
   })
   .catch(err => {
     console.log("Errore")
+    setFeedback("Errore durante l'invio. Riprova.");
   });
 }
 
@@ -72,10 +75,13 @@ function handleSubmit(e) {
     onChange={handleChange}/>
 
     <button type='submit'>invia</button>
+
+    {feedback && <p>{feedback}</p>}
+    
     </form>
 
     </>
-  )
+  );
 }
 
-export default App
+export default App;
