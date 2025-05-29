@@ -12,6 +12,15 @@ console.log(formData);
 
 function App() {
 
+  function handleChange(e) {
+    const {name, type, value, checked } = e.target;
+    const fieldValue = type === "checkbox" ? checked : value;
+
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: fieldValue
+    }));
+  }
   return (
     <form><label htmlFor="author">Autore</label>
     <input
