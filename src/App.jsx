@@ -13,7 +13,14 @@ console.log(formData);
 function App() {
 
   return (
-    <div></div>
+    <form><label htmlFor="author">Autore</label>
+    <input
+    type="text" 
+    id='author'
+    name='author'
+    value={formData.author}
+    onChange={handleChange}/>
+    </form>
   )
 }
 
