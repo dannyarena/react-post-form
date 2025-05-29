@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import './App.css'
 
-console.log(formData);
 
 function App() {
   
   const [formData, setFormData] = useState({
-  author: '',
-  title: '',
-  body: '',
-  public: false
-  
+    author: '',
+    title: '',
+    body: '',
+    public: false
+    
   });
+  console.log(formData);
+  
   function handleChange(e) {
     const {name, type, value, checked } = e.target;
     const fieldValue = type === "checkbox" ? checked : value;
