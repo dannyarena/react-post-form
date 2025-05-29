@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios';
 import './App.css'
 
 
@@ -22,9 +23,20 @@ function App() {
       [name]: fieldValue
     }));
   }
+function handleSubmit(e) {
+  e.preventDefault();
+  axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
+  .then(res => {
+    console.log("Post riuscito!", res.data);
+  })
+  .catch(err => {
+    consol.log("Errore")
+  });
+}
+
   return (
     <>
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="author">Autore</label>
     <input
     type="text" 
@@ -57,6 +69,8 @@ function App() {
     name='public'
     value={formData.public}
     onChange={handleChange}/>
+
+    <button type='submit'>invia</button>
     </form>
 
     </>
