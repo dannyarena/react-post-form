@@ -5,6 +5,7 @@ import './App.css'
 
 function App() {
   
+   // stato che controlla tutti gli input
   const [formData, setFormData] = useState({
     author: '',
     title: '',
@@ -30,7 +31,7 @@ function handleSubmit(e) {
     console.log("Post riuscito!", res.data);
   })
   .catch(err => {
-    consol.log("Errore")
+    console.log("Errore")
   });
 }
 
@@ -67,7 +68,7 @@ function handleSubmit(e) {
     type="checkbox" 
     id='public'
     name='public'
-    value={formData.public}
+    checked={formData.public}
     onChange={handleChange}/>
 
     <button type='submit'>invia</button>
